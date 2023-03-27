@@ -25,7 +25,7 @@ class TStack {
     }
   }
   const T& get()const {
-    return arr[top];
+    return array[top];
   }
   bool isEmpty()const {
     if (top == -1) return true;
