@@ -5,7 +5,7 @@
 template<typename T, int size>
 class TStack {
  private:
-  T array[size];
+  T array[1000];
   int top;
 
  public:
@@ -35,7 +35,6 @@ class TStack {
     if (top == size - 1) return true;
     return false;
   }
-  
 };
 
 #endif  // INCLUDE_TSTACK_H_
