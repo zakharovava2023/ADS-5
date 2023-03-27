@@ -31,19 +31,16 @@ std::string infx2pstfx(std::string inf) {
         if (Operand(symbol)) {
             out += symbol;
             out += ' ';
-        }
-        else if (getPriority(symbol) == 0) {
+        } else if (getPriority(symbol) == 0) {
             stack.push(symbol);
-        }
-        else if (getPriority(symbol) == 1) {
+        } else if (getPriority(symbol) == 1) {
             while (getPriority(stack.get()) != 0) {
                 out += stack.get();
                 out += ' ';
                 stack.pop();
             }
             stack.pop();
-        }
-        else {
+        } else {
             while (!stack.isEmpty() && (getPriority(symbol) <= getPriority(stack.get()))) {
                 out += stack.get();
                 out += ' ';
@@ -67,22 +64,18 @@ int eval(std::string pref) {
     for (char symbol : pref) {
         if (symbol >= '0' && symbol <= '9') {
             stack.push(symbol - '0');
-        }
-        else if (symbol == '+' || symbol == '-' || symbol == '/' || symbol == '*') {
+        } else if (symbol == '+' || symbol == '-' || symbol == '/' || symbol == '*') {
             int num2 = stack.get();
             stack.pop();
             int num1 = stack.get();
             stack.pop();
             if (symbol == '+') {
                 stack.push(num1 + num2);
-            }
-            else if (symbol == '-') {
+            } else if (symbol == '-') {
                 stack.push(num1 - num2);
-            }
-            else if (symbol == '*') {
+            } else if (symbol == '*') {
                 stack.push(num1 * num2);
-            }
-            else if (symbol == '/') {
+            } else if (symbol == '/') {
                 stack.push(num1 / num2);
             }
         }
